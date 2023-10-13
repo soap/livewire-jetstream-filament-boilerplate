@@ -17,6 +17,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -35,6 +37,10 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,
+            ])
+            ->plugins([
+                FilamentSpatieRolesPermissionsPlugin::make(),
+                FilamentAuthenticationLogPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

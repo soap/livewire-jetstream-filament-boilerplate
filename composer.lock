@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa49443bf871d3ced9154a336fac14fc",
+    "content-hash": "519027a5fbf936e0258552339e1054ed",
     "packages": [
+        {
+            "name": "althinect/filament-spatie-roles-permissions",
+            "version": "v2.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Althinect/filament-spatie-roles-permissions.git",
+                "reference": "516ff3ccf5b86d13faed8995a60753761d8239b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Althinect/filament-spatie-roles-permissions/zipball/516ff3ccf5b86d13faed8995a60753761d8239b7",
+                "reference": "516ff3ccf5b86d13faed8995a60753761d8239b7",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "illuminate/support": "^9|^10",
+                "php": "^8.1|^8.2",
+                "spatie/laravel-permission": "^5.4"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.10",
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Althinect\\FilamentSpatieRolesPermissions\\FilamentSpatieRolesPermissionsServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentSpatieRolesPermissions": "Althinect\\FilamentSpatieRolesPermissions\\FilamentSpatieRolesPermissionsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Althinect\\FilamentSpatieRolesPermissions\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tharinda Rodrigo",
+                    "email": "tharindarodrigo@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "homepage": "https://github.com/althinect/filament-spatie-roles-permissions",
+            "keywords": [
+                "althinect",
+                "filament-spatie-roles-permissions"
+            ],
+            "support": {
+                "issues": "https://github.com/Althinect/filament-spatie-roles-permissions/issues",
+                "source": "https://github.com/Althinect/filament-spatie-roles-permissions/tree/v2.0.14"
+            },
+            "time": "2023-10-07T21:33:06+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "2.0.8",
@@ -5101,6 +5164,77 @@
             "time": "2023-04-15T23:01:58+00:00"
         },
         {
+            "name": "rappasoft/laravel-authentication-log",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rappasoft/laravel-authentication-log.git",
+                "reference": "6ab94190c970deab60360ec17b79d06c2a4368cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rappasoft/laravel-authentication-log/zipball/6ab94190c970deab60360ec17b79d06c2a4368cd",
+                "reference": "6ab94190c970deab60360ec17b79d06c2a4368cd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^10.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.4.3"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^6.0",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.2",
+                "spatie/laravel-ray": "^1.29",
+                "vimeo/psalm": "^4.20"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rappasoft\\LaravelAuthenticationLog\\LaravelAuthenticationLogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rappasoft\\LaravelAuthenticationLog\\": "src",
+                    "Rappasoft\\LaravelAuthenticationLog\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Rappa",
+                    "email": "rappa819@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Log user authentication details and send new device notifications.",
+            "homepage": "https://github.com/rappasoft/laravel-authentication-log",
+            "keywords": [
+                "laravel",
+                "laravel-authentication-log",
+                "rappasoft"
+            ],
+            "support": {
+                "issues": "https://github.com/rappasoft/laravel-authentication-log/issues",
+                "source": "https://github.com/rappasoft/laravel-authentication-log/tree/v3.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/rappasoft",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-02-23T18:45:01+00:00"
+        },
+        {
             "name": "ryangjchandler/blade-capture-directive",
             "version": "v0.3.0",
             "source": {
@@ -8294,6 +8428,74 @@
             "time": "2023-09-12T10:11:35+00:00"
         },
         {
+            "name": "tapp/filament-authentication-log",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TappNetwork/filament-authentication-log.git",
+                "reference": "91aaf8514b0f1001f3555fa9ba7fc3910d54eab5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TappNetwork/filament-authentication-log/zipball/91aaf8514b0f1001f3555fa9ba7fc3910d54eab5",
+                "reference": "91aaf8514b0f1001f3555fa9ba7fc3910d54eab5",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0-stable",
+                "php": "^8.1",
+                "rappasoft/laravel-authentication-log": "^3.0",
+                "spatie/laravel-package-tools": "^1.9"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.11"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tapp\\FilamentAuthenticationLog\\FilamentAuthenticationLogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tapp\\FilamentAuthenticationLog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tapp Network",
+                    "email": "steve@tappnetwork.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tapp Network",
+                    "email": "andreia.bohner@tappnetwork.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament authentication log plugin.",
+            "homepage": "https://github.com/TappNetwork/filament-authentication-log",
+            "keywords": [
+                "Authentication",
+                "filament",
+                "log",
+                "relation manager",
+                "resource",
+                "tapp network"
+            ],
+            "support": {
+                "issues": "https://github.com/TappNetwork/filament-authentication-log/issues",
+                "source": "https://github.com/TappNetwork/filament-authentication-log"
+            },
+            "time": "2023-09-13T21:48:21+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.6",
             "source": {
@@ -8345,6 +8547,86 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
             "time": "2023-01-03T09:29:04+00:00"
+        },
+        {
+            "name": "torann/geoip",
+            "version": "3.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Torann/laravel-geoip.git",
+                "reference": "af934013bdc073c8f4775e62cac8cc89b3de3ce6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Torann/laravel-geoip/zipball/af934013bdc073c8f4775e62cac8cc89b3de3ce6",
+                "reference": "af934013bdc073c8f4775e62cac8cc89b3de3ce6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "^8.0|^9.0|^10.0",
+                "illuminate/console": "^8.0|^9.0|^10.0",
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "php": "^8.0|^8.1"
+            },
+            "require-dev": {
+                "geoip2/geoip2": "~2.1",
+                "mockery/mockery": "^1.3",
+                "phpstan/phpstan": "^0.12.14",
+                "phpunit/phpunit": "^8.0|^9.0|^10.0",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vlucas/phpdotenv": "^5.0"
+            },
+            "suggest": {
+                "geoip2/geoip2": "Required to use the MaxMind database or web service with GeoIP (~2.1).",
+                "monolog/monolog": "Allows for storing location not found errors to the log"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Torann\\GeoIP\\GeoIPServiceProvider"
+                    ],
+                    "aliases": {
+                        "GeoIP": "Torann\\GeoIP\\Facades\\GeoIP"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Torann\\GeoIP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Stainback",
+                    "email": "torann@gmail.com"
+                }
+            ],
+            "description": "Support for multiple GeoIP services.",
+            "keywords": [
+                "IP API",
+                "geoip",
+                "geolocation",
+                "infoDB",
+                "laravel",
+                "location",
+                "maxmind"
+            ],
+            "support": {
+                "issues": "https://github.com/Torann/laravel-geoip/issues",
+                "source": "https://github.com/Torann/laravel-geoip/tree/3.0.5"
+            },
+            "time": "2023-02-21T14:02:27+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
