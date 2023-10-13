@@ -146,6 +146,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Role Name
+    |--------------------------------------------------------------------------
+    |
+    | These configuration options determine the role name used to determine and
+    | manage Laravel's "role" used for spatie/laravel-permission.
+    */
+    'superadmin_role' => env('SUPERADMIN_ROLE_NAME', 'super-admin'),
+    'admin_role' => env('ADMIN_ROLE_NAME', 'admin'),
+    'user_role' => env('USER_ROLE_NAME', 'user'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
