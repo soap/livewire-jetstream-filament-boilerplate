@@ -1,36 +1,28 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\UpdateProfileInformationForm;
 use Livewire\Livewire;
-use Tests\TestCase;
 
-class ProfileInformationTest extends TestCase
-{
-    use RefreshDatabase;
+uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-    public function test_current_profile_information_is_available(): void
-    {
-        $this->actingAs($user = User::factory()->create());
+test('current profile information is available', function () {
+    $this->actingAs($user = User::factory()->create());
 
-        $component = Livewire::test(UpdateProfileInformationForm::class);
+    $component = Livewire::test(UpdateProfileInformationForm::class);
 
-        $this->assertEquals($user->name, $component->state['name']);
-        $this->assertEquals($user->email, $component->state['email']);
-    }
+    expect($component->state['first_name'])->toEqual($user->first_name);
+    expect($component->state['last_name'])->toEqual($user->last_name);
+    expect($component->state['email'])->toEqual($user->email);
+});
 
-    public function test_profile_information_can_be_updated(): void
-    {
-        $this->actingAs($user = User::factory()->create());
+test('profile information can be updated', function () {
+    $this->actingAs($user = User::factory()->create());
 
-        Livewire::test(UpdateProfileInformationForm::class)
-            ->set('state', ['name' => 'Test Name', 'email' => 'test@example.com'])
-            ->call('updateProfileInformation');
+    Livewire::test(UpdateProfileInformationForm::class)
+        ->set('state', ['first_name' => 'Test', 'last_name'=>'Name', 'email' => 'test@example.com'])
+        ->call('updateProfileInformation');
 
-        $this->assertEquals('Test Name', $user->fresh()->name);
-        $this->assertEquals('test@example.com', $user->fresh()->email);
-    }
-}
+    expect($user->fresh()->name)->toEqual('Test Name');
+    expect($user->fresh()->email)->toEqual('test@example.com');
+});
