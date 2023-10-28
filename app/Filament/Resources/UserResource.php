@@ -37,18 +37,13 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
+                    ->dehydrateStateUsing(fn (string $state): string => Hash::make($state))
+                    ->visible(fn ($livewire) => $livewire instanceof CreateUser)
                     ->maxLength(255),
-                Forms\Components\Textarea::make('two_factor_secret')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('two_factor_recovery_codes')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('two_factor_confirmed_at'),
-                Forms\Components\TextInput::make('current_team_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('profile_photo_path')
-                    ->maxLength(2048),
+
+                Forms\Components\FileUpload::make('profile_photo_path')
+                    ->image()->disk('public')
+                    ->directory('profile-photos'),
             ]);
     }
 
@@ -56,23 +51,18 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('first_name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('last_name')
+                Tables\Columns\ImageColumn::make('profile_photo_path')->disk('public')
+                    ->circular()
+                    ->defaultImageUrl(url('/storage/profile-photos/no-photo.jpg'))
+                    ->label('Photo'),
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('two_factor_confirmed_at')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('current_team_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('profile_photo_path')
-                    ->searchable(),
+                Tables\Columns\IconColumn::make('email_verified_at')
+                    ->boolean(fn (User $record): bool => $record->hasVerifiedEmail())
+                    ->label('Email Verified'),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -86,6 +76,7 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -94,20 +85,21 @@ class UserResource extends Resource
                 ]),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
+            'view' => Pages\ViewUser::route('/{record}'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
-    }    
+    }
 }

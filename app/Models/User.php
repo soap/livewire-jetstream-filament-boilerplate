@@ -11,10 +11,11 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\FilamentUser;
-use Filament\Panel;
+use Filament\Models\Contracts\HasAvatar;
+use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements FilamentUser, MustVerifyEmail
+class User extends Authenticatable implements FilamentUser, MustVerifyEmail, HasAvatar
 {
     use HasApiTokens;
     use HasFactory;
@@ -23,6 +24,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     use Notifiable;
     use TwoFactorAuthenticatable;
     use AuthenticationLoggable;
+    use HasPanelShield;
 
     /**
      * The attributes that are mass assignable.
@@ -71,9 +73,9 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return "{$this->first_name} {$this->last_name}";
     }
 
-    public function canAccessPanel(Panel $panel): bool
+    public function getFilamentAvatarUrl(): ?string
     {
-        return $this->hasRole(['admin', 'super-admin']) && $this->hasVerifiedEmail();;
+        return $this->profile_photo_url;
     }
 
 }
