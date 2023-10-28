@@ -1,3 +1,5 @@
+[![Laravel](https://github.com/soap/livewire-jetstream-filament-boilerplate/actions/workflows/laravel.yml/badge.svg)](https://github.com/soap/livewire-jetstream-filament-boilerplate/actions/workflows/laravel.yml)
+
 ## About the Application
 This application is a Laravel application boilerplate for Laravel Jetstream with Livewire choice and Filament as Admin Panel. This will reduce your time doing the same job at the start time of project.
 
