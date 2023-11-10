@@ -78,4 +78,11 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Has
         return $this->profile_photo_url;
     }
 
+    /**
+     * Used in filamnet resource to display user's roles.
+     */
+    public function getRoleNamesAttribute(): string
+    {
+        return $this->roles->pluck('name')->join(',');
+    }
 }

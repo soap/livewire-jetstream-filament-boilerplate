@@ -64,7 +64,9 @@ class UserResource extends Resource
                 Tables\Columns\IconColumn::make('email_verified_at')
                     ->boolean(fn (User $record): bool => $record->hasVerifiedEmail())
                     ->label('Email Verified'),
-
+                Tables\Columns\TextColumn::make('roleNames')
+                    ->label('Roles')
+                    ->badge()->separator(','),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
